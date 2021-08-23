@@ -1,0 +1,61 @@
+{
+  "_from": "markdown-it-code-copy",
+  "_id": "markdown-it-code-copy@0.1.0",
+  "_inBundle": false,
+  "_integrity": "sha512-MHl4iHARAz0dUNoQnM8QdaWvSR/REk8iBNjDOIo3XbwxXfcDy5JhKwIapiKiZ6PALdmTZAzLbIWb83QZREPt4A==",
+  "_location": "/markdown-it-code-copy",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "markdown-it-code-copy",
+    "name": "markdown-it-code-copy",
+    "escapedName": "markdown-it-code-copy",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/markdown-it-code-copy/-/markdown-it-code-copy-0.1.0.tgz",
+  "_shasum": "47fa90407062ef22b2f4c0b9f357d8f4a4047551",
+  "_spec": "markdown-it-code-copy",
+  "_where": "/Users/nickgraffis/Sites/vite-ssg-tsc-netlify-vue-starter",
+  "author": {
+    "name": "DCsunset"
+  },
+  "bugs": {
+    "url": "https://github.com/DCsunset/markdown-it-code-copy/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "clipboard": "^2.0.6",
+    "lodash": "^4.17.15"
+  },
+  "deprecated": false,
+  "description": "A markdown-it plugin to add a copy icon in code blocks to copy the code",
+  "devDependencies": {
+    "markdown-it": "^10.0.0"
+  },
+  "homepage": "https://github.com/DCsunset/markdown-it-code-copy#readme",
+  "keywords": [
+    "markdown",
+    "markdown-it",
+    "plugin",
+    "code",
+    "copy"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "markdown-it-code-copy",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DCsunset/markdown-it-code-copy.git"
+  },
+  "scripts": {
+    "test": "node test/test.js"
+  },
+  "version": "0.1.0"
+}
