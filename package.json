@@ -21,6 +21,7 @@
     "markdown-to-txt": "^1.0.1",
     "mathjs": "^9.4.4",
     "nprogress": "^0.2.0",
+    "shiki": "^0.9.7",
     "vite-plugin-blurhash": "^0.1.3",
     "vswr": "^1.3.1",
     "vue": "^3.0.4",

@@ -1,10 +1,11 @@
-import Shiki from 'markdown-it-shiki'
 import Anchor from 'markdown-it-anchor'
 import Emoji from 'markdown-it-emoji'
 import twemoji from 'twemoji'
 import LinkAttributes from 'markdown-it-link-attributes'
 import Markdown from 'vite-plugin-md'
 import Footnote from 'markdown-it-footnote'
+import { getHighlighter, Highlighter, ILanguageRegistration, IShikiTheme, IThemeRegistration } from 'shiki'
+import Shiki from 'markdown-it-shiki'
 import CodeCopy from './src/markdown-it-code-copy'
 // import 'prismjs/components/prism-regex'
 // import 'prismjs/components/prism-javascript'
@@ -54,6 +55,7 @@ export default async() => {
       md.use(Footnote)
       md.use(Shiki, {
         theme: 'dracula',
+        timeout: 20_000,
       })
     // md.use(Prism)
     },
