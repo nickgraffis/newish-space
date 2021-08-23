@@ -1,11 +1,11 @@
-import Shiki from './markdown-it-shiki';
-import CodeCopy from './src/markdown-it-code-copy';
+import Shiki from 'markdown-it-shiki'
 import Anchor from 'markdown-it-anchor'
 import Emoji from 'markdown-it-emoji'
-import twemoji from 'twemoji';
+import twemoji from 'twemoji'
 import LinkAttributes from 'markdown-it-link-attributes'
 import Markdown from 'vite-plugin-md'
 import Footnote from 'markdown-it-footnote'
+import CodeCopy from './src/markdown-it-code-copy'
 export const markdownWrapperClasses = 'prose prose-sm m-auto text-left'
 
 export default Markdown({
@@ -18,7 +18,7 @@ export default Markdown({
   markdownItSetup(md) {
     md.use(CodeCopy, {
       iconClass: 'heroicon heroicon-duplicate',
-      iconStyle: ''
+      iconStyle: '',
     })
     md.use(LinkAttributes, {
       pattern: /^https?:\/\//,
@@ -29,10 +29,10 @@ export default Markdown({
     })
     md.use(Emoji)
     md.renderer.rules.text = (token, idx) => {
-      return twemoji.parse(token[idx].content, { className: 'twemoji'});
+      return twemoji.parse(token[idx].content, { className: 'twemoji' })
     }
     md.renderer.rules.emoji = (token, idx) => {
-      return twemoji.parse(token[idx].content, { className: 'twemoji'});
+      return twemoji.parse(token[idx].content, { className: 'twemoji' })
     }
     md.use(Anchor, {
       permalink: true,
@@ -41,7 +41,7 @@ export default Markdown({
     })
     md.use(Footnote)
     md.use(Shiki, {
-      theme: 'dracula'
+      theme: 'dracula',
     })
   },
 })

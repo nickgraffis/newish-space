@@ -1,38 +1,39 @@
 import path from 'path'
+import fs from 'fs'
 import { defineConfig } from 'vite'
 import Vue from '@vitejs/plugin-vue'
 import WindiCSS from 'vite-plugin-windicss'
 import Pages from 'vite-plugin-pages'
 import Layouts from 'vite-plugin-vue-layouts'
-import ViteComponents from 'vite-plugin-components';
-import Blurhash from 'vite-plugin-blurhash';
-import Markdown, { markdownWrapperClasses } from './markdown.config';
-import markdownToTxt from 'markdown-to-txt';
+import ViteComponents from 'vite-plugin-components'
+import Blurhash from 'vite-plugin-blurhash'
+import markdownToTxt from 'markdown-to-txt'
 import ViteIcons, { ViteIconsResolver } from 'vite-plugin-icons'
-import fs from 'fs';
 import matter from 'gray-matter'
-import { generate, test } from './previewify'
-import { remove } from 'diacritics'
+// import { generate, test } from './previewify'
+// import { remove } from 'diacritics'
+import Markdown, { markdownWrapperClasses } from './markdown.config'
 
-const rControl = /[\u0000-\u001F]/g
-const rSpecial = /[\s~`!@#$%^&*()\-_+=[\]{}|\\;:"'<>,.?/]+/g
-const slugify = (str: string): string => {
-  return (
-    remove(str)
-      // Remove control characters
-      .replace(rControl, '')
-      // Replace special characters
-      .replace(rSpecial, '-')
-      // Remove continuos separators
-      .replace(/-{2,}/g, '-')
-      // Remove prefixing and trailing separtors
-      .replace(/^-+|-+$/g, '')
-      // ensure it doesn't start with a number (#121)
-      .replace(/^(\d)/, '_$1')
-      // lowercase
-      .toLowerCase()
-  )
-}
+// eslint-disable-next-line no-control-regex
+// const rControl = /[\u0000-\u001F]/g
+// const rSpecial = /[\s~`!@#$%^&*()\-_+=[\]{}|\\;:"'<>,.?/]+/g
+// const slugify = (str: string): string => {
+//   return (
+//     remove(str)
+//       // Remove control characters
+//       .replace(rControl, '')
+//       // Replace special characters
+//       .replace(rSpecial, '-')
+//       // Remove continuos separators
+//       .replace(/-{2,}/g, '-')
+//       // Remove prefixing and trailing separtors
+//       .replace(/^-+|-+$/g, '')
+//       // ensure it doesn't start with a number (#121)
+//       .replace(/^(\d)/, '_$1')
+//       // lowercase
+//       .toLowerCase()
+//   )
+// }
 
 // https://vitejs.dev/config/
 
@@ -62,8 +63,8 @@ export default defineConfig({
           const { data, content } = matter(md) || { data: {}, content: '' }
           const min = (md.split('').length / 6.7) / 200
           data.duration = `${Math.ceil(min)} min read`
-          const removeScripts = content.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, "")
-          const removeHTML = removeScripts.replace(/(<([^>]+)>)/ig, "")
+          const removeScripts = content.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
+          const removeHTML = removeScripts.replace(/(<([^>]+)>)/ig, '')
           data.content = markdownToTxt(removeHTML)
           // if (data.title && data.description) generate(data.title, data.description, slugify(data.title)).then(() => console.log('done'))
           route.meta = Object.assign(route.meta || {}, { frontmatter: data })
@@ -88,10 +89,10 @@ export default defineConfig({
       ],
     }),
     ViteIcons(),
-    //https://github.com/nickgraffis/vite-plugin-blurhash
+    // https://github.com/nickgraffis/vite-plugin-blurhash
     Blurhash({
-      define: false
-    })
+      define: false,
+    }),
   ],
   server: {
     fs: {
