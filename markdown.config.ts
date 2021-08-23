@@ -4,7 +4,10 @@ import twemoji from 'twemoji'
 import LinkAttributes from 'markdown-it-link-attributes'
 import Markdown from 'vite-plugin-md'
 import Footnote from 'markdown-it-footnote'
-import { getHighlighter, Highlighter, ILanguageRegistration, IShikiTheme, IThemeRegistration } from 'shiki'
+import type { Highlighter } from 'shiki'
+import { setupForFile, transformAttributesToHTML } from 'remark-shiki-twoslash'
+import { sleep } from 'deasync'
+
 import Shiki from 'markdown-it-shiki'
 import CodeCopy from './src/markdown-it-code-copy'
 // import 'prismjs/components/prism-regex'
@@ -20,7 +23,20 @@ import CodeCopy from './src/markdown-it-code-copy'
 // import 'prismjs/components/prism-jsdoc'
 export const markdownWrapperClasses = 'prose prose-sm m-auto text-left'
 
+export const markdownItShikiTwoslashSetup = async(settings) => {
+  const { highlighters } = await setupForFile(settings)
+
+  return (markdownit, options) => {
+    markdownit.options.highlight = (code, lang, attrs) => {
+      code = code.replace(/\r?\n$/, '') // strip trailing newline fed during code block parsing
+      return transformAttributesToHTML(code, [lang, attrs].join(' '), highlighters, options!)
+    }
+  }
+}
+
 export default async() => {
+  const Shiki = await markdownItShikiTwoslashSetup({ theme: 'nord' })
+
   return Markdown({
     wrapperComponent: 'post',
     wrapperClasses: markdownWrapperClasses,
@@ -53,10 +69,7 @@ export default async() => {
         permalinkSymbol: '#',
       })
       md.use(Footnote)
-      md.use(Shiki, {
-        theme: 'dracula',
-        timeout: 20_000,
-      })
+      md.use(Shiki)
     // md.use(Prism)
     },
   })
