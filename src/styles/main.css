@@ -2,6 +2,7 @@
 /* @import './fonts/Inter/stylesheet.css'; */
 @import 'heroicons-css/heroicons.css';
 @import './themes.css';
+@import './prism-dracula.css';
 
 html,
 body,
@@ -43,6 +44,10 @@ html.dark {
     opacity-75 transition duration-200 ease-in-out
     hover:opacity-100 hover:text-secondary
   font-size: 0.9em;
+}
+
+pre {
+  font-family: 'Dank Mono' !important;
 }
 
 .shiki {
