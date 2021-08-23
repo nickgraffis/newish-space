@@ -5,7 +5,9 @@
         <div class="h-1 w-full absolute bg-secondary top-5 opacity-85"></div>
         <div class="bg-back relative pl-8 !font-bolds flex items-center justify-center">
           <div class="relative">
-            <h1 class="relative z-20">{{projectCategory}}</h1>
+            <h1 class="relative z-20">
+              {{ projectCategory }}
+            </h1>
             <!-- <div class="absolute h-2 bg-secondary w-full top-6.5 opacity-85"></div> -->
           </div>
         </div>
@@ -18,5 +20,7 @@
 </template>
 
 <script setup lang="ts">
-  const { projects } = defineProps<{ projects: { [key: string]: any} }>()
+import gitHubDataStore from '../logics'
+const { projects } = defineProps<{ projects: { [key: string]: any} }>()
+provide('gitHubDataStore', gitHubDataStore)
 </script>

@@ -1,6 +1,7 @@
 import { useDark, useToggle } from '@vueuse/core'
 import { remove } from 'diacritics'
-
+import axios from 'axios'
+const { get } = axios
 export function formatDate(string: string | Date) {
   const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
   const months = ['Jan', 'Feb', 'March', 'April', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec']
@@ -31,7 +32,7 @@ export const commandFocus = ref(false)
 export const isDark = useDark()
 export const toggleDark: any = useToggle(isDark)
 export const currentPost = ref('')
-export const postUserReactions: any = ref<{reactions: {[key:string]: string}}>({ reactions: {}})
+export const postUserReactions: any = ref<{reactions: {[key: string]: string}}>({ reactions: {} })
 const rControl = /[\u0000-\u001F]/g
 const rSpecial = /[\s~`!@#$%^&*()\-_+=[\]{}|\\;:"'<>,.?/]+/g
 export const slugify = (str: string): string => {
@@ -50,4 +51,49 @@ export const slugify = (str: string): string => {
       // lowercase
       .toLowerCase()
   )
+}
+
+export type RepoData = {
+  description?: string
+  stars?: number
+  forks?: number
+  created_at?: string
+  updated_at?: string
+  pushed_at?: string
+  homepage?: string
+  html_url?: string
+  languages?: { [key: string]: string }
+}
+
+const gitHubData = ref({})
+
+const methods = {
+  fetchGitHubData: async(repo: string) => {
+    let repoData: RepoData = {}
+    await get(`https://api.github.com/repos/${repo}`)
+      .then(res => repoData = {
+        description: res.data.description,
+        stars: res.data.stargazers_count,
+        forks: res.data.forks_count,
+        created_at: res.data.created_at,
+        updated_at: res.data.updated_at,
+        pushed_at: res.data.pushed_at,
+        homepage: res.data.homepage,
+        html_url: res.data.html_url,
+      })
+      .catch(err => console.log(err))
+    await get(`https://api.github.com/repos/${repo}/languages`)
+      .then(res => repoData.languages = res.data)
+      .catch(err => console.log(err))
+
+    gitHubData.value = {
+      ...gitHubData.value,
+      [repo]: repoData,
+    }
+  },
+}
+
+export default {
+  gitHubData,
+  methods,
 }
