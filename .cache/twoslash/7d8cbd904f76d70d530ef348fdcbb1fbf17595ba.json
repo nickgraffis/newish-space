@@ -1,0 +1,1 @@
+{"code":"const num: number = 1","extension":"ts","highlights":[],"queries":[],"staticQuickInfos":[{"text":"const num: number","docs":"","start":6,"length":3,"line":0,"character":6,"targetString":"num"}],"errors":[],"playgroundURL":"https://www.typescriptlang.org/play/#code/MYewdgzgLgBGCuBbAXHJAjApgJxgXhgEYg","tags":[]}

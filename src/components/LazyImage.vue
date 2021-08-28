@@ -1,6 +1,6 @@
 <template>
   <div ref="target" class="relative" :class="`h-[${height}px]`">
-     <!-- Show the real image on the top and fade in after loading -->
+    <!-- Show the real image on the top and fade in after loading -->
     <img
       ref="image"
       class="absolute z-20 top-0 left-0 transition-opacity duration-500 rounded-md object-cover"
@@ -25,11 +25,11 @@ const isVisible = ref<boolean>(false)
 const { src, width, height, className } = defineProps({
   src: {
     type: String,
-    required: true
+    required: true,
   },
   className: {
     type: String,
-    required: false
+    required: false,
   },
   blurhash: {
     type: String,
@@ -49,19 +49,18 @@ const { src, width, height, className } = defineProps({
 const target = ref<HTMLElement | null>(null)
 const image = ref<HTMLImageElement | null>(null)
 
-  useIntersectionObserver(
+useIntersectionObserver(
   target,
   ([{ isIntersecting }]) => {
-    if(isIntersecting && !isVisible.value) {
+    if (isIntersecting && !isVisible.value) {
       isVisible.value = true
       if (image.value) {
-        image.value.src = import.meta.env.MODE === 'development' ? '/src' + src : src
+        image.value.src = import.meta.env.MODE === 'development' ? `/src${src}` : src
         image.value.onload = () => {
-          console.log('loaded')
           isLoaded.value = true
         }
       }
     }
-  }
+  },
 )
 </script>

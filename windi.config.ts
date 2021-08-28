@@ -1,5 +1,6 @@
 import { defineConfig } from 'windicss/helpers'
-import colors from 'windicss/colors'
+import filters from 'windicss/plugin/filters'
+import animations from '@windicss/animations'
 import typography from 'windicss/plugin/typography'
 
 export default defineConfig({
@@ -9,10 +10,10 @@ export default defineConfig({
 
   plugins: [
     typography({
-      modifiers: ['sm', 'lg']
+      modifiers: ['sm', 'lg'],
     }),
-    require('windicss/plugin/filters'),
-    require('@windicss/animations')({
+    filters,
+    animations({
       settings: {
         animatedSpeed: 800,
         heartBeatSpeed: 1000,
@@ -45,7 +46,16 @@ export default defineConfig({
               },
             },
             pre: {
-              'fontSize': '18px',
+              fontSize: '18px',
+              padding: '0',
+            },
+            kbd: {
+              fontFamily: 'Dank Mono',
+              border: '2px solid var(--primary)',
+              padding: '2px 10px',
+              margin: '0.1rem',
+              borderRadius: '0.2rem',
+              textAlign: 'center',
             },
             b: { color: 'inherit' },
             strong: { color: 'inherit' },
@@ -55,7 +65,7 @@ export default defineConfig({
             h3: { color: 'inherit' },
             h4: { color: 'inherit' },
             p: {
-              'fontSize': '18px',
+              fontSize: '18px',
             },
             code: { color: 'inherit' },
           },
@@ -83,6 +93,23 @@ export default defineConfig({
         lincoln: '#f1fa8c',
         marcilin: '#ff5555',
         vanHelsing: '#8be9fd',
+        nord: {
+          0: 'var(--nord0)',
+          1: 'var(--nord1)',
+          2: 'var(--nord2)',
+          3: 'var(--nord3)',
+          4: 'var(--nord4)',
+          5: 'var(--nord5)',
+          6: 'var(--nord6)',
+          7: 'var(--nord7)',
+          8: 'var(--nord8)',
+          9: 'var(--nord9)',
+          10: 'var(--nord10)',
+          11: 'var(--nord11)',
+          12: 'var(--nord12)',
+          13: 'var(--nord13)',
+          14: 'var(--nord14)',
+        },
         oxford: {
           // oxford
           DEFAULT: '#3E5166',
@@ -139,7 +166,7 @@ export default defineConfig({
           800: '#96730D',
           900: '#674F09',
         },
-      }
+      },
     },
   },
 })

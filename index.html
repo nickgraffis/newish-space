@@ -3,11 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" href="/favicon.ico" />
+    <!-- Preload front from google - it is faster than serving it from the Netlify CDN. -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <!-- Meta data changed on build -->
+    <title>Nick Graffis</title>
   </head>
   <body class="text-primary bg-back">
     <div id="app"></div>
@@ -15,8 +17,10 @@
     <script>
       /* Check prefere color scheme **/
       (function() {
-        const theme = localStorage.getItem('theme') || '🧛🏻‍♂️' //Default theme is dracula
-        document.documentElement.classList.add(theme)
+        // Current themes are 🐧, 🧛🏻‍♂️, 🐺
+        document.documentElement.classList.add(
+          localStorage.getItem('theme') || '🧛🏻‍♂️',
+        ) // Default theme is dracula
         const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
         const setting = localStorage.getItem('color-schema') || 'auto'
         if (setting === 'dark' || (prefersDark && setting !== 'light'))

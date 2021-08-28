@@ -1,10 +1,10 @@
-export class FunFunctions{
+export class FunFunctions {
   constructor() {
 
   }
 
   meaningOfLife() {
-    return 42;
+    return 42
   }
 
   help() {
@@ -40,5 +40,4 @@ export class FunFunctions{
   err() {
     return 'error: command not found'
   }
- 
 }

@@ -1,13 +1,13 @@
 <script setup lang="ts">
-  import twemoji from 'twemoji'
-  import { onKeyStroke, onKeyDown, onKeyUp } from '@vueuse/core';
-  import { isDark, toggleDark, openFunConsole } from '../logics'
+import twemoji from 'twemoji'
+import { onKeyStroke, onKeyDown, onKeyUp } from '@vueuse/core'
+import { isDark, toggleDark, openFunConsole } from '../logics'
 
-  onMounted(() => {
-    const themesMap: {[key: string]: string} = {
+onMounted(() => {
+  const themesMap: {[key: string]: string} = {
     '🐺': 'Nord',
     '🧛🏻‍♂️': 'Dracula',
-    '🐧': 'Penguin'
+    '🐧': 'Penguin',
   }
 
   const themes = Object.keys(themesMap)
@@ -20,36 +20,34 @@
   }
 
   let meta = false
-  onKeyDown((e) => true, (e) => {
+  onKeyDown(e => true, (e) => {
     if (e.key === 'Meta') meta = true
   })
 
-  onKeyUp((e) => true, (e) => {
+  onKeyUp(e => true, (e) => {
     if (e.key === 'Meta') meta = false
   })
 
   let shift = false
 
-  onKeyDown((e) => true, (e) => {
+  onKeyDown(e => true, (e) => {
     if (e.key === 'Shift') shift = true
   })
 
-  onKeyUp((e) => true, (e) => {
+  onKeyUp(e => true, (e) => {
     if (e.key === 'Shift') shift = false
   })
 
   onKeyDown('p', (e) => {
-    if (meta && shift) {
+    if (meta && shift)
       openFunConsole.value = true
-    }
   })
 
-  onKeyStroke((e) => e.key === 'ArrowRight' || e.key === 'ArrowLeft', (e) => {
+  onKeyStroke(e => e.key === 'ArrowRight' || e.key === 'ArrowLeft', (e) => {
     if (meta) {
       e.preventDefault()
       const dir = e.key === 'ArrowRight'
       const next = newTheme(dir)
-      console.log(currentTheme.value, ' to ', next)
       document.documentElement.classList.replace(currentTheme.value, next)
       flashMessage && flashMessage(`
         <div class="text-primary font-semibold text-xl flex flex-col items-center space-y-4">
@@ -65,7 +63,7 @@
     }
   })
 
-  onKeyStroke((e) => e.key === 'ArrowUp' || e.key === 'ArrowDown', (e) => {
+  onKeyStroke(e => e.key === 'ArrowUp' || e.key === 'ArrowDown', (e) => {
     if (meta) {
       e.preventDefault()
       toggleDark()
@@ -80,9 +78,9 @@
             </p>
           </div>
         `)
-      }
-    })
+    }
   })
+})
 </script>
 
 <template>

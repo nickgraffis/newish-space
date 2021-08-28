@@ -13,15 +13,15 @@
         {{ description }}
       </div>
       <div class="flex space-x-4 py-2">
-        <div class="py-1 px-3 bg-back ring-2 ring-muted text-muted rounded-md font-semibold">
-          GitHub
-        </div>
-        <div class="py-1 px-3 bg-back ring-2 ring-muted text-muted rounded-md font-semibold">
+        <a v-if="gitHubData[github] && gitHubData[github].homepage" target="_blank" :href="gitHubData[github].homepage" class="!no-underline py-1 px-3 cursor-pointer bg-back ring-2 ring-muted text-muted rounded-md font-semibold">
           Live Site
-        </div>
-        <div class="py-1 px-3 bg-back ring-2 ring-muted text-muted rounded-md font-semibold">
-          Blog Post
-        </div>
+        </a>
+        <a v-if="gitHubData[github] && gitHubData[github].html_url" target="_blank" :href="gitHubData[github].html_url" class="!no-underline py-1 px-3 cursor-pointer bg-back ring-2 ring-muted text-muted rounded-md font-semibold">
+          Repo
+        </a>
+        <router-link v-if="project.blog_post" target="_blank" :to="`/posts/${project.blog_post}`" class="!no-underline py-1 px-3 cursor-pointer bg-back ring-2 ring-muted text-muted rounded-md font-semibold">
+          Repo
+        </router-link>
       </div>
       <LanguagesBreakdown v-if="gitHubData[github] && gitHubData[github].languages" :languages="gitHubData[github].languages" />
     </div>
@@ -30,13 +30,19 @@
 
 <script setup lang="ts">
 import twemoji from 'twemoji'
-const { project: { github, name, icon, description } } = defineProps<{ project: { github: string; name: string; icon: string; description: string} }>()
+const { project: { github, name, icon, description } } = defineProps<{
+  project: {
+    github: string
+    name: string
+    icon: string
+    description: string
+    blog_post: string
+  }
+}>()
 const { gitHubData, methods }: any = inject('gitHubDataStore')
 if (github && import.meta.env.DEV) methods.fetchGitHubData(github)
 
 onServerPrefetch(async() => {
-  console.log(`prefetching data for ${name}`)
   await methods.fetchGitHubData(github)
-  console.log(`data is ${gitHubData.value[github]}`)
 })
 </script>

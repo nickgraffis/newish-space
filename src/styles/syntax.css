@@ -1,0 +1,110 @@
+pre, .prose code, .shiki {
+  font-family: 'Dank Mono';
+  font-size: 18px;
+  white-space: pre;
+  -webkit-overflow-scrolling: touch;
+}
+
+.prose .markdown-it-code-copy > :first-child {
+  @apply text-white opacity-40 text-xl p-2 hover:opacity-80;
+}
+
+
+#twoslash-mouse-hover-info {
+  font-family: 'Dank Mono';
+  background-color: rgb(40, 42, 54);
+  @apply p-2 border-1 border-vonCount rounded-sm;
+}
+
+/** When you mouse over the pre, show the underlines */
+pre.twoslash:hover data-lsp {
+   border-color: theme('colors.vonCount');
+}
+
+.code-container .line {
+  @apply border-l-6 border-[#282a36] px-4;
+}
+
+.code-container {
+  @apply inline-block transition-colors duration-500 ease-in-out !py-10 w-full;
+}
+.code-title {
+  @apply absolute -top-11 right-0 bg-[#282a36] p-2 rounded-tl-md rounded-tr-md ;
+}
+
+.code-container .dim span, .code-container .highlight {
+  @apply transition-colors duration-500 ease-in-out;
+}
+.code-container:not(:hover) .dim span{
+  @apply !text-vonCount;
+}
+
+.code-container:hover .highlight{
+  @apply !bg-vanHelsing bg-opacity-10 border-l-6 border-vanHelsing;
+}
+
+.error-icon {
+  @apply h-6 w-6 text-marcilin;
+}
+
+/* Not working 🤷‍♂️*/
+.code-container::-webkit-scrollbar 
+{
+  display: none;
+}
+
+pre .error, pre .error-behind {
+  margin-left: 0px;
+  margin-top: 8px;
+  margin-bottom: 4px;
+  padding: 6px;
+  padding-left: 14px;
+  width: 100%;
+  white-space: pre-wrap;
+  display: block;
+}
+
+pre .error {
+  position: absolute;
+  background-color: rgb(40, 42, 54);
+  @apply border-t-2 border-marcilin border-b-2 space-x-2;
+ /* Give the space to the error code */
+  display: flex;
+  align-items: center;
+  color: theme('colors.cullen');
+}
+pre .error .code {
+  @apply text-vonCount;
+}
+
+pre .error .code:before {
+  content: ' ts('
+}
+pre .error .code:after {
+  content: ')'
+}
+
+pre .error-behind {
+  user-select: none;
+  visibility: transparent;
+  color: white;
+}
+
+.language-id {
+  display: none;
+}
+
+data-lsp {
+ /* Ensures there's no 1px jump when the hover happens */
+  border-bottom: 1px solid transparent;
+ /* Fades in unobtrusively */
+  transition-timing-function: ease;
+  transition: border-color 0.3s;
+}
+/* Respect people's wishes to not have animations */
+@media (prefers-reduced-motion: reduce) {
+  data-lsp {
+    transition: none;
+ }
+}
+

@@ -1,0 +1,1 @@
+{"code":"async function a() { await null; }","extension":"ts","highlights":[],"queries":[],"staticQuickInfos":[{"text":"function a(): Promise<void>","docs":"","start":15,"length":1,"line":0,"character":15,"targetString":"a"}],"errors":[],"playgroundURL":"https://www.typescriptlang.org/play/#code/PTAEFpIYwVwF0uAUAQwM4E8B2VQDMYc4BLAey1BQAoBKUAb0oHcVi5QsYAbLgblAC+QA","tags":[]}
