@@ -46,20 +46,30 @@ onMounted(() => {
         </div>
       </div>
     </router-link>
-    <div class="flex space-x-6 items-center text-lg">
+    <div class="flex space-x-6 items-center lg:text-lg text-sm">
       <router-link to="/about" class="hover:text-secondary transition-colors duration-150">
-        <p>About</p>
+        <p class="hidden lg:inline-flex">
+          About
+        </p>
+        <noto:octopus class="lg:hidden inline-flex" />
       </router-link>
       <router-link to="/posts" class="hover:text-secondary transition-colors duration-150">
-        <p>Posts</p>
+        <p class="hidden lg:inline-flex">
+          Posts
+        </p>
+        <noto:rolled-up-newspaper class="lg:hidden inline-flex" />
       </router-link>
       <router-link to="/projects" class="hover:text-secondary transition-colors duration-150">
-        <p>Projects</p>
+        <p class="hidden lg:inline-flex">
+          Projects
+        </p>
+        <noto:laptop class="lg:hidden inline-flex" />
       </router-link>
       <a href="https://resume.nickgraffis.me" target="_blank" class="hover:text-secondary transition-colors duration-150">
-        <p>Resume</p>
+        <p class="hidden lg:inline-flex">Resume</p>
+        <p class="lg:hidden inline-flex">CV</p>
       </a>
-      <a class="cursor-pointer text-xl hover:text-secondary transition-colors duration-150" @click="toggleDark">
+      <a class="cursor-pointer lg:text-xl !text-base hover:text-secondary transition-colors duration-150" @click="toggleDark">
         <il:moon v-if="isDark" />
         <icon-park-outline:sun-one v-else />
       </a>

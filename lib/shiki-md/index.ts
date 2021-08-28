@@ -238,12 +238,12 @@ export const transformAttributesToHTML = (
 ) => {
   const fence = parseFence(fenceString)
   if (fence.lang === 'vue' && code.includes('<script setup lang="ts">')) {
-    code = code.replace(/<script setup lang="ts">/g, '//VUE-START//').replace(/<\/script>/g, '//VUE-END//')
+    // code = code.replace(/<script setup lang="ts">/g, '//VUE-START//').replace(/<\/script>/g, '//VUE-END//')
     fence.lang = 'ts'
   }
   const twoslash = runTwoSlashOnNode(code, fence, settings)
   const newCode = (twoslash && twoslash.code) || code
-  // newCode = newCode.replace(`//VUE-START//`, `<script setup lang="ts">`).replace(`//VUE-END//`, "</script>")
+  // newCode = newCode.replace('//VUE-START//', '<script setup lang="ts">').replace('//VUE-END//', '</script>')
   const html = getHTML(newCode, fence, highlighters, twoslash, settings)
   return html
 }

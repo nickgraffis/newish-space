@@ -12,7 +12,5 @@
 </template>
 
 <script setup lang="ts">
-import gitHubDataStore from '../logics/store'
 const { projects } = defineProps<{ projects: { [key: string]: any} }>()
-provide('gitHubDataStore', gitHubDataStore)
 </script>

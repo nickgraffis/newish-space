@@ -38,7 +38,7 @@ if (frontmatter.title) currentPost.value = slugify(frontmatter.title)
   <div class="prose prose-sm m-auto text-left mb-8 ">
     <!-- TODO: Why sm? -->
     <!-- Only show if there is a title or display included in the frontmatter -->
-    <h1 v-if="frontmatter.display || frontmatter.title" class="!mb-3 !text-6xl !text-primary">
+    <h1 v-if="frontmatter.display || frontmatter.title" class="!mb-3 !text-3xl lg:!text-6xl !text-primary">
       <span v-html="twemoji.parse(frontmatter.display || frontmatter.title, { className: 'twemoji' })"></span>
     </h1>
     <!-- Only show if there is a date && duration inside the frontmatter -->
