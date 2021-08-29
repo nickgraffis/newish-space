@@ -86,7 +86,7 @@ const tags: any = computed(
 <template>
   <div class="mb-8">
     <h1
-      class="!text-6xl !mb-2"
+      class="!text-3xl lg:!text-6xl !mb-2"
       :class="searchTags.length ? '!font-light !text-middle' : '!font-black'"
     >
       Blog
@@ -130,7 +130,7 @@ const tags: any = computed(
       :to="route.item.path"
     >
       <div class="group">
-        <h2 v-if="route.item.meta.frontmatter.title" class="!text-3xl !my-1 !font-extrabold">
+        <h2 v-if="route.item.meta.frontmatter.title" class="!text-xl lg:!text-3xl !my-1 !font-extrabold">
           <span v-html="highlight(route.item.meta.frontmatter.title)"></span>
         </h2>
         <p v-if="route.item.meta.frontmatter.description" class="!text-base !mb-2 !text-muted !group-hover:text-secondary">

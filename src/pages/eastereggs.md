@@ -10,14 +10,14 @@ I guess this defeats the purpose of having easter eggs...but I wanted to collect
 # 🙈 Reactions
 You can add reactions to most articles, by default you have eight options: :smile:, :rocket:, :rofl:, :thumbsup:, :thumbsdown:, :partying_face:, :heart:, :eyes:. You can also get pretty fancy by using your keyboard on any pageto add reactions. Try it out with `A - Z`. 
 
-If you ever add a reaction that you wish you hadn't added, try ⌘ + Z.
+If you ever add a reaction that you wish you hadn't added, try <kbd>⌘ Z</kbd>.
 
 Reactions are a pretty simple implementation of [FaunaDB](https://faunadb.com).[^1]
-
+<!-- 
 # 🔎 Global Search
-⌘ + K at any time will pull up the search bar. You can search for any article, or try asking it a few questions. 
+⌘ + K at any time will pull up the search bar. You can search for any article, or try asking it a few questions.  -->
 
-# 📊 Analytics
+<!-- # 📊 Analytics
 <div class="my-4">
   <div class="bg-blade h-4 w-4 rounded-full animate-animated animate-pulse"></div>
 </div>
@@ -43,10 +43,10 @@ casper.blockTrackingForMe();
 
 ```js
 casper.enableTrackingForMe();
-```
+``` -->
 
 # 🎨 Themes
-There are three themes, each with dark mode and light mode. You can toggle between themes with ⌘ + ← or →. And to toggle between light and dark mode you can hit:
+There are three themes, each with dark mode and light mode. You can toggle between themes with <kbd>⌘ ←</kbd> or <kbd>⌘ →</kbd>. And to toggle between light and dark mode you can hit:
 
 <div class="flex">
   <div @click="toggleDark" class="text-3xl p-2 rounded-md hover:bg-secondary cursor-pointer" v-if="isDark">
@@ -57,33 +57,20 @@ There are three themes, each with dark mode and light mode. You can toggle betwe
   </div>
 </div>
 
-You can also use ⌘ + Shift.
+You can also use <kbd>⌘ ↑</kbd> & <kbd>⌘ ↓</kbd>.
 
-## 🐧 Penguin Theme
-`html.🐧.dark`
-<p class="flex items-center">
-  <div class="w-6 h-6 rounded-md bg-caribbean-50"></div> 
-  &nbsp; <code>Primary</code>
-</p>
-<p class="flex items-center">
-  <div class="w-6 h-6 rounded-md bg-caribbean-500"></div> 
-  &nbsp; <code>Secondary</code>
-</p>
-<p class="flex items-center">
-  <div class="w-6 h-6 rounded-md bg-mango-500"></div> 
-  &nbsp; <code>Tertiary</code>
-</p>
+Check out all of the theme's [color palettes](/palette).
 
-## 🧛‍♂️ Dracula Theme
-## 🐺 Nord Theme
+# ⭐️ Conselations
+The [404](/404) page in dark mode has a ton of stars that are _mostly_ randomly generated. There are, however, 7 stars that are always the same, and make up the big dipper.
 
-# 👨‍💻 Command Palette
+<!-- # 👨‍💻 Command Palette
 A kind of fun option is the use the command palette. ⌘ + Shift + P will open the palette for you. This is avliable anywhere on the site, and doesn't relly do anthing useful. 
 
 It is secure however, so it only runs defined functions. You can try out 
 ```bash
 math('2 + 2')
 ``` 
-if you want, but for the most part, I'll keep this undocumented, as I don't even know what functions I wrote any more :rofl:. Ctrl + C will close the palette.
+if you want, but for the most part, I'll keep this undocumented, as I don't even know what functions I wrote any more :rofl:. Ctrl + C will close the palette. -->
 
 [^1]: FaunaDB is a database that stores your data in a way that makes it easy to query and visualize. Check out [Using FaunaDB JavaScript Driver Client Side, With Custom Roles]().

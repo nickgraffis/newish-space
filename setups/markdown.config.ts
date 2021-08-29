@@ -45,10 +45,20 @@ export default async() => {
       })
       md.use(Emoji)
       md.renderer.rules.text = (token, idx) => {
-        return twemoji.parse(token[idx].content, { className: 'twemoji' })
+        return `
+        <span class="emoji-wrapper">
+        <span class="native-emoji">${token[idx].content}</span>
+        ${twemoji.parse(token[idx].content, { className: 'twemoji' })}
+        </span>
+        `
       }
       md.renderer.rules.emoji = (token, idx) => {
-        return twemoji.parse(token[idx].content, { className: 'twemoji' })
+        return `
+        <span class="emoji-wrapper">
+        <span class="native-emoji">${token[idx].content}</span>
+        ${twemoji.parse(token[idx].content, { className: 'twemoji' })}
+        </span>
+        `
       }
       md.use(Anchor, {
         permalink: Anchor.permalink.ariaHidden({
