@@ -4,6 +4,7 @@ import twemoji from 'twemoji'
 import LinkAttributes from 'markdown-it-link-attributes'
 import Markdown from 'vite-plugin-md'
 import Footnote from 'markdown-it-footnote'
+import TableOfContents from 'markdown-it-table-of-contents'
 import { setupForFile, transformAttributesToHTML } from '../lib/shiki-md'
 import CodeCopy from '../src/markdown-it-code-copy'
 
@@ -68,6 +69,7 @@ export default async() => {
       })
       md.use(Footnote)
       md.use(Shiki)
+      md.use(TableOfContents)
     },
   })
 }

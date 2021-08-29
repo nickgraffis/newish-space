@@ -34,5 +34,8 @@ glob('dist/**/*.html', (err, pages) => {
   </urlset>
   `)
 
-  // axios.post('https://www.google.com/ping?sitemap=https://nickgraffis.me/sitemap.xml')
+  await axios.post('https://www.google.com/ping?sitemap=https://www.nickgraffis.me/sitemap.xml')
+  // eslint-disable-next-line no-console
+    .then(res => console.log(res.status))
+    .catch(err => console.error(err))
 })

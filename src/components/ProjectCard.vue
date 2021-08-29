@@ -48,10 +48,14 @@ const fetch = () => {
     fetchGitHubData(github).then((data: RepoData) => {
       gitHubData.value = data
     })
+
+    // eslint-disable-next-line no-console
+    if (import.meta.env.DEV) console.log('fetching github data again 🤷‍♂️')
   }
 }
 
 if (!gitHubData.value) fetch()
+
 onServerPrefetch(async() => {
   const data: RepoData = await fetchGitHubData(github)
   gitHubData.value = data

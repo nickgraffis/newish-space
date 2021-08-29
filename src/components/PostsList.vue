@@ -21,8 +21,8 @@ const params = useUrlSearchParams('history')
 const searchTags = typeof params?.tags === 'string' ? params?.tags.split(',').map(tag => tag.trim()) : []
 const lang = ref('en')
 const router = useRouter()
-const routes = router.getRoutes().filter((route: any) => route.meta.frontmatter?.lastUpdated)
-  .sort((a: any, b: any) => +new Date(b.meta.frontmatter.lastUpdated) - +new Date(a.meta.frontmatter.lastUpdated))
+const routes = router.getRoutes().filter((route: any) => route.meta.frontmatter?.date)
+  .sort((a: any, b: any) => +new Date(b.meta.frontmatter.date) - +new Date(a.meta.frontmatter.date))
 
 // Find all of the posts based on the routes
 const posts = computed(() =>

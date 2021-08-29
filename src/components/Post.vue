@@ -1,8 +1,10 @@
 <script setup lang='ts'>
 import twemoji from 'twemoji'
 import { useEventListener, isClient } from '@vueuse/core'
+import { useHead } from '@vueuse/head'
 import { formatDate, slugify, currentPost } from '../logics'
 import setupTwoslashHovers from '../setupTwoslashHovers'
+
 if (isClient) {
   const navigate = () => {
     if (location.hash) {
@@ -32,6 +34,33 @@ if (isClient) {
 const { frontmatter } = defineProps<{ frontmatter: any }>()
 // If this is a post globally signal that it is the current post
 if (frontmatter.title) currentPost.value = slugify(frontmatter.title)
+
+// https://github.com/vueuse/head
+useHead({
+  title: frontmatter?.title || 'Nick Graffis',
+  meta: [
+    { name: 'title', content: frontmatter?.title || 'Nick Graffis' },
+    { name: 'description', content: frontmatter?.description || 'Nick Graffis\'s Personal Website' },
+    { name: 'twitter:card', content: 'summary' },
+    { name: 'twitter:site', content: '@nickgraffistwit' },
+    { name: 'twitter:creator', content: '@nickgraffistwit' },
+    { name: 'twitter:title', content: frontmatter?.title || 'Nick Graffis' },
+    { name: 'twitter:description', content: frontmatter?.description || 'Nick Graffis\'s Personal Website' },
+    { name: 'og:title', content: frontmatter?.title || 'Nick Graffis' },
+    { name: 'og:description', content: frontmatter?.description || 'Nick Graffis\'s Personal Website' },
+    { name: 'og:url', content: 'https://nickgraffis.me' },
+    { name: 'og:image', content: 'https://nickgraffis.me/assets/previews/hello-world.png' },
+    { name: 'og:type', content: 'website' },
+    { name: 'og:locale', content: 'en_US' },
+    { name: 'og:site_name', content: 'Nick Graffis' },
+    { name: 'og:image:width', content: '1200' },
+    { name: 'og:image:height', content: '630' },
+    { name: 'og:image:alt', content: 'Nick Graffis' },
+    { name: 'og:image:type', content: 'image/png' },
+    { name: 'og:image:secure_url', content: 'https://nickgraffis.me/assets/previews/hello-world.png' },
+    { name: 'og:image:url', content: 'https://nickgraffis.me/assets/previews/hello-world.png' },
+  ],
+})
 </script>
 
 <template>
