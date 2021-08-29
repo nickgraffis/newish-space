@@ -32,7 +32,6 @@ if (isClient) {
 const { frontmatter } = defineProps<{ frontmatter: any }>()
 // If this is a post globally signal that it is the current post
 if (frontmatter.title) currentPost.value = slugify(frontmatter.title)
-console.log(frontmatter)
 </script>
 
 <template>

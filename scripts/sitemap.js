@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const fs = require('fs')
 const glob = require('glob')
+const axios = require('axios')
 
 const getPageData = (file) => {
   const original = file.replace('dist', '').replace('.html', '.md')
@@ -32,4 +33,6 @@ glob('dist/**/*.html', (err, pages) => {
       </url>`).join('')}
   </urlset>
   `)
+
+  // axios.post('https://www.google.com/ping?sitemap=https://nickgraffis.me/sitemap.xml')
 })

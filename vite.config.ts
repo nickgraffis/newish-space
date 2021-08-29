@@ -42,8 +42,20 @@ export default defineConfig(async() => {
             data.duration = `${Math.ceil(min)} min read`
             const removeScripts = content.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
             const removeHTML = removeScripts.replace(/(<([^>]+)>)/ig, '')
+            // const lastUpdated = fs.statSync(p).mtime.toISOString()
+            // if (mode === 'development') {
+            //   fs.writeFileSync(`${p}`, `---\n${yaml.safeDump({
+            //     ...(data.title) && { title: data.title },
+            //     ...(data.description) && { description: data.description },
+            //     ...(data.date) && { date: data.date },
+            //     ...(data.projects) && { projects: data.projects },
+            //     ...(data.lang) && { lang: data.lang },
+            //     ...(data.tags) && { tags: data.tags },
+            //     ...(data.lookingForFeedback === false) && { lookingForFeedback: data.lookingForFeedback },
+            //     lastUpdated,
+            //   })}---${content}`)
+            // }
             data.content = markdownToTxt(removeHTML)
-            data.lastUpdated = fs.statSync(p).mtime.toISOString()
             route.meta = Object.assign(route.meta || {}, { frontmatter: data })
           }
           return route
