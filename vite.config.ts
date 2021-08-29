@@ -43,6 +43,7 @@ export default defineConfig(async() => {
             const removeScripts = content.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
             const removeHTML = removeScripts.replace(/(<([^>]+)>)/ig, '')
             data.content = markdownToTxt(removeHTML)
+            data.lastUpdated = fs.statSync(p).mtime.toISOString()
             route.meta = Object.assign(route.meta || {}, { frontmatter: data })
           }
           return route

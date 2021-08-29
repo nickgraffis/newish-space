@@ -32,6 +32,7 @@ if (isClient) {
 const { frontmatter } = defineProps<{ frontmatter: any }>()
 // If this is a post globally signal that it is the current post
 if (frontmatter.title) currentPost.value = slugify(frontmatter.title)
+console.log(frontmatter)
 </script>
 
 <template>
@@ -43,7 +44,9 @@ if (frontmatter.title) currentPost.value = slugify(frontmatter.title)
     </h1>
     <!-- Only show if there is a date && duration inside the frontmatter -->
     <p v-if="frontmatter.date" class="!my-2 !font-semibold">
-      {{ formatDate(frontmatter.date) }} <span v-if="frontmatter.duration">· {{ frontmatter.duration }}</span>
+      Published: {{ formatDate(frontmatter.date) }}
+      <span v-if="frontmatter.lastUpdated && formatDate(frontmatter.lastUpdated) !== formatDate(frontmatter.date)"> · Updated: {{ formatDate(frontmatter.lastUpdated) }}</span>
+      <span v-if="frontmatter.duration">· {{ frontmatter.duration }}</span>
     </p>
     <!-- Show reactions on the client only and only if the post is accepting feedback -->
     <ClientOnly v-if="frontmatter.lookingForFeedback != false">
