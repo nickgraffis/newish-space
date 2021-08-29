@@ -4,7 +4,7 @@
   "scripts": {
     "write": "node ./scripts/write",
     "dev": "vite",
-    "build": "vite-ssg build && node ./scripts/sitemap && cp -R ./src/assets/images ./dist/assets",
+    "build": "vite-ssg build && node ./scripts/sitemap && cp -R ./src/assets/images ./dist/assets && cp -R ./src/assets/previews ./dist/assets",
     "serve": "vite preview",
     "lint": "eslint src/**/*.{ts,vue}"
   },

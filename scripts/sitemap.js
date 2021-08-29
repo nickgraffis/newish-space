@@ -17,7 +17,7 @@ const getPageData = (file) => {
   return null
 }
 
-glob('dist/**/*.html', (err, pages) => {
+glob('dist/**/*.html', async(err, pages) => {
   if (err) return console.error(err)
   const sitemap = []
   pages.forEach((page) => {
