@@ -1,7 +1,7 @@
 <script setup lang='ts'>
 import twemoji from 'twemoji'
 import { useEventListener, isClient } from '@vueuse/core'
-import { useHead } from '@vueuse/head'
+import { useHead, Head } from '@vueuse/head'
 import { formatDate, slugify, currentPost } from '../logics'
 import setupTwoslashHovers from '../setupTwoslashHovers'
 
@@ -37,6 +37,41 @@ if (frontmatter.title) currentPost.value = slugify(frontmatter.title)
 
 // https://github.com/vueuse/head
 useHead({
+  script: [
+    {
+      type: 'application/ld+json',
+      children: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'BlogPosting',
+        'headline': frontmatter.title,
+        'publisher': {
+          '@type': 'Organization',
+          'name': 'Nick Graffis',
+          'logo': {
+            '@type': 'ImageObject',
+            'url': 'https://nickgraffis.com/logo.png',
+            'width': '300',
+            'height': '300',
+          },
+          'images': 'url',
+          'url': 'https://nickgraffis.com',
+          'datePublished': frontmatter.date,
+          'dateModified': frontmatter.date,
+          'dateCreated': frontmatter.date,
+          'description': 'Nick Graffis is a software engineer, writer, and speaker living in the San Francisco Bay Area.',
+          'author': {
+            '@type': 'Person',
+            'name': 'Nick Graffis',
+            'url': 'https://nickgraffis.com',
+          },
+          'mainEntityOfPAge': {
+            '@type': 'WebPage',
+            '@id': 'https://nickgraffis.com/posts/',
+          },
+        },
+      }),
+    },
+  ],
   title: frontmatter?.title || 'Nick Graffis',
   meta: [
     { name: 'title', content: frontmatter?.title || 'Nick Graffis' },

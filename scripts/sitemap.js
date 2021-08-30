@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const fs = require('fs')
 const glob = require('glob')
-const axios = require('axios')
+const { get } = require('axios').default
 
 const getPageData = (file) => {
   const original = file.replace('dist', '').replace('.html', '.md')
@@ -34,7 +34,7 @@ glob('dist/**/*.html', async(err, pages) => {
   </urlset>
   `)
 
-  await axios.post('https://www.google.com/ping?sitemap=https://www.nickgraffis.me/sitemap.xml')
+  await get('https://www.google.com/ping?sitemap=https://www.nickgraffis.me/sitemap.xml')
   // eslint-disable-next-line no-console
     .then(res => console.log(res.status))
     .catch(err => console.error(err))
