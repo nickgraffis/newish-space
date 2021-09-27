@@ -9,10 +9,10 @@ import { setupForFile, transformAttributesToHTML } from '../lib/shiki-md'
 import CodeCopy from '../src/markdown-it-code-copy'
 
 export const markdownWrapperClasses = 'prose prose-sm m-auto text-left'
-export const markdownItShikiTwoslashSetup = async(settings) => {
+export const markdownItShikiTwoslashSetup = async(settings: any) => {
   const { highlighters } = await setupForFile(settings)
 
-  return (markdownit, options) => {
+  return (markdownit: any, options: any) => {
     markdownit.options.highlight = (code, lang, attrs) => {
       code = code.replace(/\r?\n$/, '') // strip trailing newline fed during code block parsing
       return transformAttributesToHTML(code, [lang, attrs].join(' '), highlighters, options!)
