@@ -15,13 +15,22 @@ title: My Uses
 * [Brydge Vertical Dock](https://www.brydge.com/products/macbook-vertical-dock) - _Really looks great, and frees up a ton of desk space_.
 * Aluratek - 1080 HD Webcam - _This isn't great, but I didn't want anything too fancy or expensive. Just for zoom_.
 ## Development
-* VS Code - I jumped between Sublime and Atom for a long time, then got bullied by some friends into VS Code. It works fast, doesn't crash, and has a ton of great features out of the box. It's awesome.
-* Dracula Theme - Duh...
-* iTerm/Zsh - Although VS Code has a good zsh in the code editor, I like having my terminal in it's own window. This has Dracula Theme as well.
-* Insomnia - Agian, VS Code can do this for you, but Insomnia has some cool features like saving different environments and credintials.
+* [VS Code](https://code.visualstudio.com/download) - I jumped between Sublime and Atom for a long time, then got bullied by some friends into VS Code. It works fast, doesn't crash, and has a ton of great features out of the box. It's awesome.
+    * [Git Lense](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
+    * [Angular Language Service](https://marketplace.visualstudio.com/items?itemName=Angular.ng-template) - If you use Angular, you'll love this. It gives you autocomplete inside your html templates. :mindblown:
+    * [Grammarly](https://github.com/znck/grammarly) - Grammarly is awesome, this plugin is a great idea and it works pretty well, but may need some time to get perfect.
+* [iTerm](https://iterm2.com)/[Oh-My-Zsh](https://ohmyz.sh)
+    * [Fig :pear:](https://fig.io) - Really cool autocomplete for all things in the terminal.
+* [Insomnia](https://insomnia.rest) - VS Code can do this for you, but Insomnia has some cool features like saving different environments and credintials.
+* [Dracula Theme](https://draculatheme.com) - For everything...
 ## Hosting
 * [Netlify](https://www.netlify.com) - The only thing I really am using right now for personal sties.
 * Heroku - _Used for projects that require a server, but I love the development flow of Netlify so much more..._
+* [FaunaDB](https://www.fauna.com/fauna) - Serverless database and query language.
+* [Air Table](https://airtable.com) - Super simple tables with a pretty good API and UI.
+## Other Software
+* [Loom](https://www.loom.com) - Pretty simple and easy for screen casts and asynchronous work. 
+* [Grammarly](https://app.grammarly.com) - I good not much at grammar and speeleing.
 ## Random Tech
 * Apple Airpods Pro
 * [Timeular](https://timeular.com/) - Pretty cool tool for time tracking.
