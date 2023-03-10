@@ -9,7 +9,7 @@ I work at [**Model Match**](https://modelmatch.com) where I help create and main
 
 I am also currently a Web Developement Teaching Asssitant at [UC Irivne, Division of Continuing Education](https://uci.edu). Zot, zot 💙💛. This program, along with others, helped me to become a better developer and a better person. I'm really excited to pay it forward :pray:.
 
-In addition to programming and teaching I coach [water polo](/waterpolo), surf, and spend a ton of time with my awesome family.
+In addition to programming and teaching I coach water polo, surf, and spend a ton of time with my awesome family.
 <hr>
 
 You can reach me anytime at [hi@nickgraffis.me](mailto:hi@nickgraffis.me).

@@ -1,7 +1,7 @@
 ---
 title: Water Polo
 ---
-<script setup lang="ts">
+<!-- <script setup lang="ts">
   import { 
     seventeenjosJpg,
     eighteenjosJpg,
@@ -106,4 +106,4 @@ I am currently the Head Coach of Mens and Womens Water Polo at <span style="colo
   :height="450"
 />
 
-**2015 UCI Southwestern Divison Runners Up and CWPA National Semifinalists** - Brandon Nguyen & Myself
+**2015 UCI Southwestern Divison Runners Up and CWPA National Semifinalists** - Brandon Nguyen & Myself -->
